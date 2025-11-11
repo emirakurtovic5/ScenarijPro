@@ -16,12 +16,11 @@ body {
     position: fixed;
     left: 0;
     top: 0;
-
     display: flex;
     flex-direction: column;
 }
 
-/* Naslov */
+/* Naslov aplikacije */
 .naslov {
     color: #4a4ae2;
     font-size: 22px;
@@ -65,13 +64,12 @@ body {
     color: white;
 }
 
-/* Linija */
+/* Linija razdvajanja */
 .linija {
     width: 100%;
     height: 1px;
     background-color: #ddd;
-    margin: 25px 0 20px 0;
-    align-items: center;
+    margin: 25px 0 25px 0;
 }
 
 /* Profil korisnika */
@@ -79,6 +77,7 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
+    /*margin-top: auto; da ostane pri dnu sidebar-a */
 }
 
 .slika {
@@ -106,3 +105,174 @@ body {
     margin: 0;
 }
 
+/* Glavni sadržaj */
+main {
+    margin-left: 250px; /* širina sidebar-a */
+    padding: 20px;
+    flex-grow: 1;
+}
+
+/* Header (zaglavlje) */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.naslov1 {
+    color: #000;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.zaglavlje-desno {
+    display: flex;
+    gap: 10px;
+}
+
+.pretraga {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.novi-projekat {
+    padding: 8px 16px;
+    background-color: #5B3FFF;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.novi-projekat:hover {
+    background-color: #4a34cc;
+}
+
+/* Projects Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* Opći stil za sve kartice */
+.projektna-kartica,
+.aktivna {
+    background-color: white;
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid #e8e8e8;
+    transition: box-shadow 0.3s ease;
+    position: relative;
+}
+
+.projektna-kartica:hover,
+.aktivna:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Aktivna kartica */
+.aktivna {
+    border-left: 5px solid #5B3FFF;
+}
+
+.aktivna-oznaka {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background-color: #E8E4FF;
+    color: #5B3FFF;
+    padding: 6px 16px;
+    border-radius: 16px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Naslovi projekata */
+.naslov-projekta,
+.projektni-naslov {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2d3748;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+/* Opisi projekata */
+.opis-projekta,
+.projektni-opis {
+    color: #718096;
+    font-size: 15px;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+/* Detalji projekata */
+.detalji-projekta,
+.projektni-detalji {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.detalji-projekta p,
+.projektni-detalji p {
+    font-size: 14px;
+    color: #4a5568;
+    line-height: 1.6;
+}
+
+.detalji-projekta strong,
+.projektni-detalji strong {
+    font-weight: 600;
+    color: #2d3748;
+}
+
+/* Kartica za kreiranje novog scenarija */
+.naparaviNovu-projektnuKarticu {
+    background-color: white;
+    border: 3px dashed #5B3FFF;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    min-height: 280px;
+    transition: box-shadow 0.3s ease;
+    padding: 30px;
+}
+
+.naparaviNovu-projektnuKarticu:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.kreiraj-ikona {
+    font-size: 64px;
+    color: #5B3FFF;
+    font-weight: 300;
+    margin-bottom: 16px;
+    line-height: 1;
+}
+
+.kreiraj-tekst {
+    color: #5B3FFF;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 750px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

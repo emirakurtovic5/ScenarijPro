@@ -1,32 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <title>ScenarijPro</title>
+
     <!-- Google Fonts: Poppins i Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="projects.css">
+
+    <!-- Povezivanje CSS fajla -->
+    <link rel="stylesheet" href="../css/projects.css">
 </head>
 <body>
-<aside class="sidebar">
-    <h1 class="naslov">ScenarijPro</h1>
-    <ul class="lista">
-        <li><a href="#" class="aktivno">Projects</a></li>
-        <li><a href="#">Statistics</a></li>
-        <li><a href="#">Settings</a></li>
-    </ul>
 
-    <hr class="linija">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h1 class="naslov">ScenarijPro</h1>
+        <ul class="lista">
+            <li><a href="#" class="aktivno">Projects</a></li>
+            <li><a href="#">Statistics</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
 
-    <div class="korisnik">
-        <div class="slika">U</div> 
-        <div class="podaci">
-            <p class="ime">Alex Writer</p>
-            <p class="clan">Pro member</p>
+        <hr class="linija">
+
+        <div class="korisnik">
+            <div class="slika">U</div> 
+            <div class="podaci">
+                <p class="ime">Alex Writer</p>
+                <p class="clan">Pro member</p>
+            </div>
         </div>
-    </div>
-</aside>
+    </aside>
 
+    <!-- Glavni sadržaj -->
+    <main>
+        <header class="header">
+            <h1 class="naslov1">Svi scenariji</h1>
+            <div class="zaglavlje-desno">
+                <input type="search" class="pretraga" placeholder="Pretraga">
+                <button class="novi-projekat">+ Novi projekat</button>
+            </div>
+        </header>
+        <div class="grid">
+            <div class="aktivna">
+                <div class="aktivna-oznaka">Aktivan</div>
+                <h2 class="naslov-projekta">THE LAST STARSHIP</h2>
+                <p class="opis-projekta">Sci-Fi Feature Film</p>
+                <div class="detalji-projekta">
+                    <p><strong>Status:</strong> Second Draft</p>
+                    <p><strong>Broj stranica:</strong> 105</p>
+                    <p><strong>Vrijeme posljednje izmjene:</strong> 2 hours ago</p>
+                </div>
+            </div>
+             <div class="projektna-kartica">
+                <h2 class="projektni-naslov">A TOWN CALLED QUIET</h2>
+                <p class="projektni-opis">Mystery TV Pilot (45 min)</p>
+                <div class="projektni-detalji">
+                    <p><strong>Status:</strong> Outline Complete</p>
+                    <p><strong>Broj stranica:</strong> 12</p>
+                    <p><strong>Vrijeme posljednje izmjene:</strong> Yesterday</p>
+                </div>
+            </div>
+            
+            <div class="projektna-kartica">
+                <h2 class="projektni-naslov">THE ARCHITECT'S SECRET</h2>
+                <p class="projektni-opis">Thriller Short Film</p>
+                <div class="projektni-detalji">
+                    <p><strong>Status:</strong> Final Polish</p>
+                    <p><strong>Broj stranica:</strong> 28</p>
+                    <p><strong>Vrijeme posljednje izmjene:</strong> 3 weeks ago</p>
+                </div>
+            </div>
+            
+            <div class="naparaviNovu-projektnuKarticu">
+                <div class="kreiraj-ikona">+</div>
+                <p class="kreiraj-tekst">Kreiraj novi scenarij</p>
+            </div>
+        </div>
+    </main>
 
 </body>
 </html>
