@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", "Inter", sans-serif;
+    background-color: #f5f6fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px 15px;
+}
+
+
+.forma-wrapper {
+    max-width: 600px; 
+    width: 100%;
+    background-color: white;
+    padding: 20px; 
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.naslov {
+    font-size: 20px; 
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+
+.linija {
+    border: none;
+    border-top: 2px solid #5B3FFF;
+    margin-bottom: 6px;
+}
+
+
+.tekst {
+    font-style: italic;
+    color: #999;
+    font-size: 12px; 
+    margin-bottom: 15px; 
+    text-align: center;
+}
+
+
+section {
+    margin-bottom: 12px;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.podaci-o-racunu {
+    background-color: #e8f0fe;
+}
+
+.sigurnosne-postavke {
+    background-color: #fce8e6;
+}
+
+.Notifikacije {
+    background-color: #e6f4ea;
+}
+
+section h2 {
+    font-size: 14px; 
+    font-weight: 600;
+    margin-bottom: 10px; 
+}
+
+.podaci-o-racunu h2 {
+    color: #1967d2;
+}
+
+.sigurnosne-postavke h2 {
+    color: #c5221f;
+}
+
+.Notifikacije h2 {
+    color: #137333;
+}
+
+
+.forma-grupa {
+    margin-bottom: 10px; 
+}
+
+.forma-grupa label {
+    display: block;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 4px; 
+    font-size: 12px; 
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 6px 10px; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: "Poppins", "Inter", sans-serif;
+    font-size: 12px; 
+    outline: none;
+    transition: border-color 0.3s ease;
+    background-color: white;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus,
+select:focus {
+    border-color: #5B3FFF;
+}
+
+select {
+    cursor: pointer;
+}
+
+
+.checkbox-grupa {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 6px;
+}
+
+input[type="checkbox"] {
+    width: 14px; 
+    height: 14px;
+    cursor: pointer;
+}
+
+.checkbox-grupa label {
+    margin-bottom: 0;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+
+.buttons {
+    display: flex;
+    gap: 15px; 
+    margin-top: 6px;
+}
+
+.buttons label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 0;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+input[type="radio"] {
+    width: 14px; 
+    height: 14px;
+    cursor: pointer;
+}
+
+
+.dugme-spasi {
+    width: 100%;
+    padding: 10px 20px; 
+    background-color: #5B3FFF;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-family: "Poppins", "Inter", sans-serif;
+    font-size: 14px; 
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 6px;
+}
+
+.dugme-spasi:hover {
+    background-color: #4A2FE6;
+}
+
+
+@media screen and (min-width: 750px) {
+    .forma-grupa {
+        display: flex;
+        align-items: center;
+        gap: 12px; 
+    }
+    
+    .forma-grupa label {
+        min-width: 140px; 
+        text-align: right;
+        margin-bottom: 0;
+    }
+    
+    .forma-grupa input,
+    .forma-grupa select {
+        flex: 1;
+    }
+    
+    .buttons {
+        flex: 1;
+    }
+    
+    .checkbox-grupa {
+        flex: 1;
+        justify-content: flex-start;
+    }
+}
+
+
+@media screen and (max-width: 749px) {
+    body {
+        padding: 10px;
+    }
+    
+    .forma-wrapper {
+        padding: 15px;
+    }
+    
+    .naslov {
+        font-size: 18px;
+    }
+    
+    section {
+        padding: 10px;
+    }
+    
+    section h2 {
+        font-size: 13px;
+    }
+    
+    .buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
