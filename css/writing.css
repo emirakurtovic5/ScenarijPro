@@ -1,0 +1,200 @@
+:root {
+  --header-height: 70px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    font-family: "Poppins", "Inter", sans-serif; 
+    background-color: #f5f6fa; 
+}
+
+
+.zaglavlje {
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 0 20px;               
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 6px; 
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    flex-wrap: wrap;
+}
+
+.strelica{
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px 10px;
+    color: gray;
+    margin-left: 20px;
+}
+
+.naslovZaglavlje{
+    margin-left: 20px;  
+}
+
+.lijevo, .sredina, .desno {
+    display: flex;
+    align-items: center;
+}
+
+.sredina {
+    gap: 10px;  
+}
+
+.sredina .dugme {
+    text-transform: uppercase;        
+    background-color: #e0e0e0;       
+    border: none;                     
+    border-radius: 8px;              
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05); 
+    padding: 8px 14px;                
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;                      
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+
+.sredina .dugme:hover {
+    background-color: #f0f0f0; 
+}
+
+.desno .spasi{
+    text-transform: uppercase;
+    background-color: #28a745;
+    border:  none;                     
+    border-radius: 8px; 
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+    padding: 8px 14px;               
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    transition: background-color 0.2s ease;
+}
+
+.desno .spasi:hover{
+    background-color: #218838;
+}
+
+.sidebar {
+    position: fixed;
+    top: var(--header-height); 
+    left: 0;
+    width: 250px;
+    height: calc(100vh - var(--header-height));
+    background-color: #f8f9fb;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lista li {
+    margin-bottom: 12px;
+}
+
+.lista a {
+    text-decoration: none;
+    color: gray;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+     
+}
+
+.lista a i {
+    margin-right: 10px;
+    width: 18px;
+    text-align: center;
+}
+
+.lista a .title { display:block; font-weight:600; }
+.lista a .pages { display:block; font-size: 0.9em; color: #666; margin-top:4px; }
+
+.lista a:hover {
+    background-color: #d0e7ff; 
+}
+
+.lista a.aktivno {
+    background-color: #E9EEFF;
+    border-radius: 8px; 
+    color: #333;
+    border-left: 3px solid #5B3FFF;
+}
+
+main {
+    display: flex;
+    flex-grow: 1;
+    height: calc(100vh - 70px); 
+}
+.editor {
+    margin-left: 250px;
+    background-color: gray;
+    flex-grow: 1;
+    min-height: calc(100vh - 70px);
+    padding-top: 20px;
+}
+.papir {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 30px;
+  margin: 20px auto;
+  width: 80%;
+  max-width: 900px;
+  line-height: 1.6;
+  font-family: "Courier Prime", "Courier New", monospace;
+}
+.papir p {
+  margin-bottom: 1.5em; 
+}
+
+.h3{
+    text-transform: uppercase;
+    color: #D68A00;
+    font-weight: bold;
+    margin-bottom: 1.5em;
+}
+
+@media (max-width: 750px) {
+  :root { --header-height: auto; } 
+
+  .zaglavlje {
+    height: auto;
+    padding: 12px 20px;
+  }
+
+  .sidebar {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: auto;
+    padding: 12px;
+  }
+
+  
+  .sredina { justify-content:center; gap:8px; }
+  .sredina .dugme {
+    flex: 0 1 45%;
+    text-align: center;
+  }
+}
