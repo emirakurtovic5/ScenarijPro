@@ -1,85 +1,87 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>ScenarijPro</title>
+<html lang="bs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postavke korisničkog računa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/user.css">
+</head>
+<body>
+    <div class="forma-wrapper">
+        <h1 class="naslov">Postavke korisničkog računa</h1>
+        <hr class="linija">
+        <p class="tekst">Upravljajte vašim korisničkim računom, sigurnosnim postavkama i notifikacijama</p>
+        
+        <section class="podaci-o-racunu">
+            <h2>Podaci o korisničkom računu</h2>
 
-    
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+            <div class="forma-grupa">
+                <label for="ime-prezime">Ime i prezime</label>
+                <input type="text" id="ime-prezime" name="ime-prezime" placeholder="Unesite vaše ime i prezime">
+            </div>
 
-    
-        <link rel="stylesheet" href="../css/user.css">
-    </head>
+            <div class="forma-grupa">
+                <label for="email">Email adresa</label>
+                <input type="email" id="email" name="email" placeholder="primjer@domena.com">
+            </div>
 
-    <body>
-        <div class="forma-wrapper">
-            <h1 class="naslov">Postavke korisničkog računa</h1>
-            <hr class="linija">
-            <p class="tekst">Upravljajte vašim korisničkim računom, sigurnosnim postavkama i notifikacijama</p>
-            <section class="podaci-o-racunu">
-                <h2>Podaci o korisničkom računu</h2>
-    
-                <div class="forma-grupa">
-                    <label for="ime-prezime">Ime i prezime</label>
-                    <input type="text" id="ime-prezime" name="ime-prezime" placeholder="Unesite ime i prezime">
-                </div>
-    
-                <div class="forma-grupa">
-                    <label for="email">Email adresa</label>
-                    <input type="email" id="email" name="email" placeholder="Unesite email adresu">
-                </div>
-    
-                <div class="forma-grupa">
-                    <label for="broj-elemenata">Broj elemenata po stranici</label>
-                    <input type="number" id="broj-elemenata" name="broj-elemenata" min="1" max="100" placeholder="1-100">
-                </div>
-            </section>
+            <div class="forma-grupa">
+                <label for="broj-elemenata">Broj elemenata po stranici</label>
+                <input type="number" id="broj-elemenata" name="broj-elemenata" min="1" max="100" placeholder="Unesite broj (1-100)">
+            </div>
+        </section>
 
-            <section class="sigurnosne-postavke">
-                <h2>Sigurnosne postavke</h2>
-    
-                <div class="forma-grupa">
-                    <label for="nova-sifra">Nova šifra</label>
-                    <input type="password" id="nova-sifra" name="nova-sifra" placeholder="Unesite novu šifru">
-                </div>
-    
-                <div class="forma-grupa checkbox-grupa">
+        <section class="sigurnosne-postavke">
+            <h2>Sigurnosne postavke</h2>
+
+            <div class="forma-grupa">
+                <label for="nova-sifra">Nova šifra</label>
+                <input type="password" id="nova-sifra" name="nova-sifra" placeholder="Unesite novu šifru">
+            </div>
+
+            <div class="forma-grupa">
+                <label></label>
+                <div class="checkbox-grupa">
                     <input type="checkbox" id="2fa" name="2fa">
                     <label for="2fa">Omogući Two-Factor Authentication (2FA)</label>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="Notifikacije">
-                <h2>Notifikacije</h2>
+        <section class="notifikacije">
+            <h2>Notifikacije</h2>
 
-                <div class="forma-grupa">
-                    <label>Preferirani način komunikacije</label>
-                    <div class="buttons">
-                        <label>
-                            <input type="radio" name="komunikacija" value="email">
-                            Email
-                        </label>
-                        <label>
-                            <input type="radio" name="komunikacija" value="sms">
-                            SMS
-                        </label>
-                        <label>
-                            <input type="radio" name="komunikacija" value="none">
-                            None
-                        </label>
-                    </div>
+            <div class="forma-grupa">
+                <label>Preferirani način komunikacije</label>
+                <div class="radio-grupa">
+                    <label>
+                        <input type="radio" name="komunikacija" value="email">
+                        Email
+                    </label>
+                    <label>
+                        <input type="radio" name="komunikacija" value="sms">
+                        SMS
+                    </label>
+                    <label>
+                        <input type="radio" name="komunikacija" value="none">
+                        None
+                    </label>
                 </div>
-                <div class="forma-grupa">
-                    <label for="frekvencija">Notification frequency</label>
-                    <select id="frekvencija" name="frekvencija">
-                        <option value="daily" selected>Daily</option>
-                        <option value="weekly">Weekly</option>
-                        <option value="monthly">Monthly</option>
-                        <option value="never">Never</option>
-                    </select>
-                </div>   
-            </section>
-            <button class="dugme-spasi">Spasi promjene</button>
-        </div>
-    </body>
+            </div>
+
+            <div class="forma-grupa">
+                <label for="frekvencija">Notification frequency</label>
+                <select id="frekvencija" name="frekvencija">
+                    <option value="daily" selected>Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="never">Never</option>
+                </select>
+            </div>   
+        </section>
+
+        <button class="dugme-spasi">Spasi promjene</button>
+    </div>
+</body>
 </html>
