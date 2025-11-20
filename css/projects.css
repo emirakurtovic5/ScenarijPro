@@ -4,7 +4,7 @@ body {
     font-family: "Poppins", "Inter", sans-serif;
 }
 
-/* ========== TOP NAVIGATION (raniji sidebar) ========== */
+
 
 .sidebar {
     width: 100%;
@@ -24,7 +24,7 @@ body {
     flex-direction: row;
 }
 
-/* Naslov lijevo */
+
 .naslov {
     color: #4a4ae2;
     font-size: 22px;
@@ -32,7 +32,7 @@ body {
     margin: 0;
 }
 
-/* Lista — sada horizontalna */
+
 .lista {
     list-style: none;
     padding: 0;
@@ -62,12 +62,12 @@ body {
     color: white;
 }
 
-/* Linija iz sidebar-a više ne treba */
+
 .linija {
     display: none;
 }
 
-/* Korisnik sada desno u navigaciji */
+
 .korisnik {
     display: flex;
     align-items: center;
@@ -99,14 +99,14 @@ body {
     margin: 0;
 }
 
-/* ========== MAIN CONTENT ========== */
+
 
 main {
-    margin-top: 80px;      /* sprječava podvlačenje ispod top bar-a */
+    margin-top: 80px;      
     padding: 20px;
 }
 
-/* Header unutar main-a */
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -147,7 +147,7 @@ main {
     background-color: #4a34cc;
 }
 
-/* GRID KARTICE */
+
 
 .grid {
     display: grid;
@@ -255,7 +255,7 @@ main {
     font-weight: 500;
 }
 
-/* ========== RESPONSIVE ========== */
+
 
 @media screen and (max-width: 750px) {
 
@@ -273,7 +273,7 @@ main {
     }
 
     main {
-        margin-top: 140px; /* veća visina jer je top bar viši */
+        margin-top: 140px; 
     }
 
     .header {
