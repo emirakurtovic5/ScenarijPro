@@ -1,62 +1,60 @@
-
 body {
     margin: 0;
     background-color: #f5f6fa;
     font-family: "Poppins", "Inter", sans-serif;
-    display: flex;
 }
 
+/* ========== TOP NAVIGATION (raniji sidebar) ========== */
 
 .sidebar {
-    width: 250px;
-    height: 100vh;
+    width: 100%;
+    height: 80px; 
     background-color: #f8f9fb;
-    padding: 25px 20px;
+    padding: 20px;
     box-sizing: border-box;
+
     position: fixed;
-    left: 0;
     top: 0;
+    left: 0;
+    z-index: 1000;
+
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
 }
 
-
+/* Naslov lijevo */
 .naslov {
     color: #4a4ae2;
     font-size: 22px;
     font-weight: 600;
-    margin-bottom: 25px;
+    margin: 0;
 }
 
-
+/* Lista — sada horizontalna */
 .lista {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    gap: 20px;
 }
 
 .lista li {
-    margin-bottom: 12px;
+    margin: 0;
 }
 
 .lista a {
     text-decoration: none;
     color: #333;
-    display: flex;
-    align-items: center;
-    padding: 10px 15px;
+    padding: 8px 14px;
     border-radius: 10px;
     transition: background-color 0.3s ease;
 }
 
-.lista a i {
-    margin-right: 10px;
-    width: 18px;
-    text-align: center;
-}
-
 .lista a:hover {
-    background-color: #d0e7ff; 
+    background-color: #d0e7ff;
 }
 
 .lista a.aktivno {
@@ -64,20 +62,16 @@ body {
     color: white;
 }
 
-
+/* Linija iz sidebar-a više ne treba */
 .linija {
-    width: 100%;
-    height: 1px;
-    background-color: #ddd;
-    margin: 25px 0 25px 0;
+    display: none;
 }
 
-
+/* Korisnik sada desno u navigaciji */
 .korisnik {
     display: flex;
     align-items: center;
     gap: 10px;
-    
 }
 
 .slika {
@@ -105,14 +99,14 @@ body {
     margin: 0;
 }
 
+/* ========== MAIN CONTENT ========== */
 
 main {
-    margin-left: 250px;
+    margin-top: 80px;      /* sprječava podvlačenje ispod top bar-a */
     padding: 20px;
-    flex-grow: 1;
 }
 
-
+/* Header unutar main-a */
 .header {
     display: flex;
     justify-content: space-between;
@@ -153,6 +147,7 @@ main {
     background-color: #4a34cc;
 }
 
+/* GRID KARTICE */
 
 .grid {
     display: grid;
@@ -160,7 +155,6 @@ main {
     gap: 20px;
     max-width: 1200px;
 }
-
 
 .projektna-kartica,
 .aktivna {
@@ -176,7 +170,6 @@ main {
 .aktivna:hover {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
-
 
 .aktivna {
     border: 3px solid #5B3FFF;
@@ -194,7 +187,6 @@ main {
     font-weight: 500;
 }
 
-
 .naslov-projekta,
 .projektni-naslov {
     font-size: 16px;
@@ -205,7 +197,6 @@ main {
     line-height: 1.2;
 }
 
-
 .opis-projekta,
 .projektni-opis {
     color: #6b7280;
@@ -214,7 +205,6 @@ main {
     font-weight: 400;
     line-height: 1.3;
 }
-
 
 .detalji-projekta,
 .projektni-detalji {
@@ -227,7 +217,6 @@ main {
 .projektni-detalji p {
     font-size: 13px;
     color: #4b5563;
-    line-height: 1.5;
     margin: 0;
 }
 
@@ -236,7 +225,6 @@ main {
     font-weight: 600;
     color: #1f2937;
 }
-
 
 .naparaviNovu-projektnuKarticu {
     background-color: white;
@@ -258,9 +246,7 @@ main {
 .kreiraj-ikona {
     font-size: 48px;
     color: #5B3FFF;
-    font-weight: 300;
     margin-bottom: 12px;
-    line-height: 1;
 }
 
 .kreiraj-tekst {
@@ -269,43 +255,43 @@ main {
     font-weight: 500;
 }
 
+/* ========== RESPONSIVE ========== */
 
 @media screen and (max-width: 750px) {
-    body {
-        flex-direction: column;
-    }
-    
+
     .sidebar {
-        position: static;
-        width: 100%;
+        flex-direction: column;
         height: auto;
-        padding: 20px;
+        padding-bottom: 15px;
+        gap: 10px;
     }
-    
+
+    .lista {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
     main {
-        margin-left: 0;
-        padding: 20px;
+        margin-top: 140px; /* veća visina jer je top bar viši */
     }
-    
+
     .header {
         flex-direction: column;
         align-items: flex-start;
         gap: 20px;
     }
-    
+
     .zaglavlje-desno {
         width: 100%;
         flex-direction: column;
     }
-    
-    .pretraga {
-        width: 100%;
-    }
-    
+
+    .pretraga,
     .novi-projekat {
         width: 100%;
     }
-    
+
     .grid {
         grid-template-columns: 1fr;
     }
