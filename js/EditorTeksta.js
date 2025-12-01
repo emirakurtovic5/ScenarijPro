@@ -13,6 +13,103 @@ let EditorTeksta = function(divRef) {
         return /^\(.*\)$/.test(line.trim());
     };
 
+    const getLines = () => {
+    
+    let tempDiv = editorDiv.cloneNode(true);
+    
+    
+    let html = tempDiv.innerHTML;
+    html = html.replace(/<br\s*\/?>/gi, '\n');
+    
+    
+    let text = html.replace(/<[^>]*>/g, '');
+    
+    
+    text = text.replace(/&nbsp;/g, ' ');
+    text = text.replace(/&lt;/g, '<');
+    text = text.replace(/&gt;/g, '>');
+    text = text.replace(/&amp;/g, '&');
+    
+    
+    let lines = text.split('\n').map(l => l.trim());
+    
+    
+    return lines;
+};
+const imaGovorIspod = (index, lines) => {
+    
+    for (let i = index + 1; i < lines.length; i++) {
+        const line = lines[i] ? lines[i].trim() : "";
+        
+        
+        if (line === "") continue;
+        
+        
+        if (isUloga(line) || isNaslovScene(line)) {
+            return false;
+        }
+        
+        
+        if (isLinijaUZagradama(line)) continue;
+        
+        
+        return true;
+    }
+    
+    return false;
+};
+const isNaslovScene = (line) => {
+    if (!line) return false;
+    let trimmed = line.trim();
+
+    return /^(INT|EXT)\.\s*-\s*(DAY|NIGHT|AFTERNOON|MORNING|EVENING)/i.test(trimmed);
+};
+
+
+
+const isUloga = (line) => {
+    if (!line || line.trim() === "") return false;
+    let trimmed = line.trim();
+
+    if (!/^[A-Z][A-Z ]*$/.test(trimmed)) return false;
+    if (isNaslovScene(trimmed)) return false;
+    if (trimmed.length > 50) return false;
+
+    return true;
+};
+const procesirajScenu = function(scena, govori, ciljanaUloga, rezultat) {
+    
+    
+    for (let i = 0; i < govori.length; i++) {
+        let govor = govori[i];
+        
+        if (govor.uloga.toLowerCase() === ciljanaUloga.toLowerCase()) {
+            let prethodni = i > 0 ? {
+                uloga: govori[i - 1].uloga,
+                linije: govori[i - 1].linije
+            } : null;
+            
+            let sljedeci = i < govori.length - 1 ? {
+                uloga: govori[i + 1].uloga,
+                linije: govori[i + 1].linije
+            } : null;
+            
+            rezultat.push({
+                scena: scena,
+                pozicijaUTekstu: govor.pozicija,
+                prethodni: prethodni,
+                trenutni: {
+                    uloga: govor.uloga,
+                    linije: govor.linije
+                },
+                sljedeci: sljedeci
+            });
+            
+            
+        }
+    }
+};
+
     const dajBrojRijeci = function () {
     let ukupno = 0, bold = 0, italic = 0;
 
@@ -187,108 +284,8 @@ const scenarijUloge = function(uloga) {
     return rezultat;
 };
 
-const isNaslovScene = (line) => {
-    if (!line) return false;
-    let trimmed = line.trim();
-
-    return /^(INT|EXT)\.\s*-\s*(DAY|NIGHT|AFTERNOON|MORNING|EVENING)/i.test(trimmed);
-};
 
 
-
-const isUloga = (line) => {
-    if (!line || line.trim() === "") return false;
-    let trimmed = line.trim();
-
-    if (!/^[A-Z][A-Z ]*$/.test(trimmed)) return false;
-    if (isNaslovScene(trimmed)) return false;
-    if (trimmed.length > 50) return false;
-
-    return true;
-};
-
-
-
-
-const procesirajScenu = function(scena, govori, ciljanaUloga, rezultat) {
-    
-    
-    for (let i = 0; i < govori.length; i++) {
-        let govor = govori[i];
-        
-        if (govor.uloga.toLowerCase() === ciljanaUloga.toLowerCase()) {
-            let prethodni = i > 0 ? {
-                uloga: govori[i - 1].uloga,
-                linije: govori[i - 1].linije
-            } : null;
-            
-            let sljedeci = i < govori.length - 1 ? {
-                uloga: govori[i + 1].uloga,
-                linije: govori[i + 1].linije
-            } : null;
-            
-            rezultat.push({
-                scena: scena,
-                pozicijaUTekstu: govor.pozicija,
-                prethodni: prethodni,
-                trenutni: {
-                    uloga: govor.uloga,
-                    linije: govor.linije
-                },
-                sljedeci: sljedeci
-            });
-            
-            
-        }
-    }
-};
-
-    
-const imaGovorIspod = (index, lines) => {
-    
-    for (let i = index + 1; i < lines.length; i++) {
-        const line = lines[i] ? lines[i].trim() : "";
-        
-        
-        if (line === "") continue;
-        
-        
-        if (isUloga(line) || isNaslovScene(line)) {
-            return false;
-        }
-        
-        
-        if (isLinijaUZagradama(line)) continue;
-        
-        
-        return true;
-    }
-    
-    return false;
-};
-const getLines = () => {
-    
-    let tempDiv = editorDiv.cloneNode(true);
-    
-    
-    let html = tempDiv.innerHTML;
-    html = html.replace(/<br\s*\/?>/gi, '\n');
-    
-    
-    let text = html.replace(/<[^>]*>/g, '');
-    
-    
-    text = text.replace(/&nbsp;/g, ' ');
-    text = text.replace(/&lt;/g, '<');
-    text = text.replace(/&gt;/g, '>');
-    text = text.replace(/&amp;/g, '&');
-    
-    
-    let lines = text.split('\n').map(l => l.trim());
-    
-    
-    return lines;
-};
 const grupisiUloge = function() {
     const lines = getLines();
     
