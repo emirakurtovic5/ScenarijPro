@@ -7,8 +7,10 @@
     
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
-    
+        
+
         <link rel="stylesheet" href="../css/writing.css">
+                       
     </head>
     <body>
     <header class="zaglavlje">
@@ -56,18 +58,44 @@
             </li>
         </ul>
     </aside>
-
     <main class="editor">
-        <div class="papir">
-            <h3 class="h3">EXT. LUNAR SURFACE - DAY</h3>
-            <p>
-                The vast, grey SILENCE of the moon. Dust motes hang impossibly still
-                in the weak light. CAPTAIN KIRA (40s, sharp, tired) walks toward a ruined
-                DOME, her footsteps crunching.
-             </p>
-        </div>
+    
+    <div class="nova-dugmad">
+        <button onclick="boldirajTekst()" class="dugme">BOLD</button>
+        <button onclick="italicTekst()" class="dugme">ITALIC</button>
+        <button onclick="underlineTekst()" class="dugme">UNDERLINE</button>
+        <button onclick="GrupisiUloge()" class="dugme">GRUPISI ULOGE</button>
+        <button onclick="ScenarijUloge()" class="dugme">SCENARIJ ULOGE</button>
+        <button onclick="BrojLinijaTeksta()" class="dugme">BROJ LINIJA</button>
+        <button onclick="PogresnaUloga()" class="dugme">PROVJERI ULOGE</button>
+        <button onclick="DajUloge()" class="dugme">SVE ULOGE</button>
+        <button onclick="DajBrojRijeci()" class="dugme">BROJ RIJEČI</button>
+    </div>
 
-    </main>
+    
+    <div id="editorContent" contenteditable="true" class="papir">INT. STARSHIP BRIDGE - NIGHT
+
+The command deck hums with dying power.
+
+CAPTAIN KIRA
+How long until we lose life support?
+
+ENGINEER MALIK
+Maybe two hours.
+
+CAPTAIN KIRA
+Then we work fast.
+
+EXT. ASTEROID FIELD - DAY
+
+The damaged starship drifts through rocks.</div>
+
+    
+    <div id="output"></div>
+</main>
+
+    <script src="../js/EditorTeksta.js"></script>
+    <script src="../js/editor.js"></script>
 
     </body>
 </html>
