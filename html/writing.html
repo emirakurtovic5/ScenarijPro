@@ -4,76 +4,78 @@
         <meta charset="UTF-8">
         <title>ScenarijPro</title>
 
-    
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-
-        
-
         <link rel="stylesheet" href="../css/writing.css">
-                       
+        <script src="../js/PoziviAjax.js"></script>
+        <script src="../js/EditorTeksta.js"></script>
+        <script src="../js/editor.js"></script>
     </head>
+
     <body>
-    <header class="zaglavlje">
-        <div class="lijevo">
-            <button class="strelica" aria-label="Back">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
-            <h1 class="naslovZaglavlje">THE LAST STARSHIP (Draft 2)</h1>
-        </div>
+        <header class="zaglavlje">
+            <div class="lijevo">
+                <button class="strelica" aria-label="Back">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <h1 class="naslovZaglavlje">THE LAST STARSHIP (Draft 2)</h1>
+            </div>
 
-        <div class="sredina">
-            <button class="dugme">SCENA</button>
-            <button class="dugme">AKCIJA</button>
-            <button class="dugme">LIK</button>
-            <button class="dugme">DIJALOG</button>
-        </div>
+            <div class="sredina">
+                <button class="dugme">SCENA</button>
+                <button class="dugme">AKCIJA</button>
+                <button class="dugme">LIK</button>
+                <button class="dugme">DIJALOG</button>
+            </div>
 
-        <div class="desno">
-            <button class="spasi">SPASI</button>
-        </div>
-    </header>
+            <div class="desno">
+                <button class="spasi">SPASI</button>
+            </div>
+        </header>
 
-    <aside class="sidebar">
-        <h2 class="naslov">Scene (3)</h2>
-        <ul class="lista">
-            <li>
-                <a href="#" class="aktivno">
-                    <span class="title">1. INT. STARSHIP BRIDGE - NIGHT</span>
-                    <span class="pages">(5/8)</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="title">2. EXT. ASTEROID FIELD - DAY</span>
-                    <span class="pages">(3/8)</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="title">3. INT. ENGINE ROOM - NIGHT</span>
-                    <span class="pages">(2/8)</span>
-                </a>
-            </li>
-        </ul>
-    </aside>
-    <main class="editor">
-    
-    <div class="nova-dugmad">
-        <button onclick="boldirajTekst()" class="dugme">BOLD</button>
-        <button onclick="italicTekst()" class="dugme">ITALIC</button>
-        <button onclick="underlineTekst()" class="dugme">UNDERLINE</button>
-        <button onclick="GrupisiUloge()" class="dugme">GRUPISI ULOGE</button>
-        <button onclick="ScenarijUloge()" class="dugme">SCENARIJ ULOGE</button>
-        <button onclick="BrojLinijaTeksta()" class="dugme">BROJ LINIJA</button>
-        <button onclick="PogresnaUloga()" class="dugme">PROVJERI ULOGE</button>
-        <button onclick="DajUloge()" class="dugme">SVE ULOGE</button>
-        <button onclick="DajBrojRijeci()" class="dugme">BROJ RIJEČI</button>
-    </div>
+        <aside class="sidebar">
+            <h2 class="naslov">Scene (3)</h2>
+            <ul class="lista">
+                <li>
+                    <a href="#" class="aktivno">
+                        <span class="title">1. INT. STARSHIP BRIDGE - NIGHT</span>
+                        <span class="pages">(5/8)</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="title">2. EXT. ASTEROID FIELD - DAY</span>
+                        <span class="pages">(3/8)</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="title">3. INT. ENGINE ROOM - NIGHT</span>
+                        <span class="pages">(2/8)</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
 
-    
-    <div id="editorContent" contenteditable="true" class="papir">INT. STARSHIP BRIDGE - NIGHT
+        <main class="editor">
+
+            <div class="nova-dugmad">
+                <button onclick="boldirajTekst()" class="dugme">BOLD</button>
+                <button onclick="italicTekst()" class="dugme">ITALIC</button>
+                <button onclick="underlineTekst()" class="dugme">UNDERLINE</button>
+                <button onclick="GrupisiUloge()" class="dugme">GRUPISI ULOGE</button>
+                <button onclick="ScenarijUloge()" class="dugme">SCENARIJ ULOGE</button>
+                <button onclick="BrojLinijaTeksta()" class="dugme">BROJ LINIJA</button>
+                <button onclick="PogresnaUloga()" class="dugme">PROVJERI ULOGE</button>
+                <button onclick="DajUloge()" class="dugme">SVE ULOGE</button>
+                <button onclick="DajBrojRijeci()" class="dugme">BROJ RIJEČI</button>
+            </div>
+
+            <div id="editorContent" contenteditable="true" class="papir">
+INT. STARSHIP BRIDGE - NIGHT
 
 The command deck hums with dying power.
 
@@ -88,15 +90,46 @@ Then we work fast.
 
 EXT. ASTEROID FIELD - DAY
 
-The damaged starship drifts through rocks.</div>
-
+The damaged starship drifts through rocks.
+            </div>
+            <div>
+                <label for="scenarioIdInput">Scenario ID:</label>
+                <input type="number" id="scenarioIdInput" value="1" />
     
-    <div id="output"></div>
-</main>
+            </div>
+            <div>
+                 <label for="characterNameInput">Ime lika:</label>
+                <input type="text" id="characterNameInput" />
 
-    <script src="../js/EditorTeksta.js"></script>
-    <script src="../js/editor.js"></script>
+                <label for="newCharacterNameInput">Novo ime:</label>
+                <input type="text" id="newCharacterNameInput" />
+            </div>
 
+            <div>
+                <label for="userIdInput">User ID:</label>
+                <input type="number" id="userIdInput" value="1" />
+            </div>
+
+            <div>
+                <label for="lineIdInput">Line ID:</label>
+                <input type="number" id="lineIdInput" />
+            </div>
+
+            <div>
+                <label for="newTextInput">Novi tekst (jedna linija po retku):</label><br/>
+                <textarea id="newTextInput" rows="4" cols="50"></textarea>
+            </div>
+
+            <div>
+                <button onclick="zakljucajLiniju()">Zaključaj liniju</button>
+                <button onclick="sacuvajIzmjenuLinije()">Sačuvaj izmjenu</button>
+                <button onclick="ucitajScenario()">Učitaj scenario</button>
+                <button onclick="zakljucajLik()">Zaključaj lika</button>
+                <button onclick="promijeniImeLika()">Promijeni ime lika</button>
+            </div>
+
+            <div id="output"></div>
+        </main>
     </body>
 </html>
 

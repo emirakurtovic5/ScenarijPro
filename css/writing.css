@@ -289,3 +289,234 @@ main {
         text-align: center;
     }
 }
+
+.editor > div:has(#userIdInput) {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 0 auto 20px auto;
+    width: 85%;
+    max-width: 1100px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    align-items: center;
+}
+
+.editor label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+.editor input[type="number"] {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.editor textarea {
+    grid-column: 1 / -1;
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+    resize: vertical;
+}
+
+.editor textarea:focus,
+.editor input:focus {
+    outline: none;
+    border-color: #5B3FFF;
+}
+
+.editor > div:has(button[onclick="zakljucajLiniju()"]) {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.editor button[onclick="zakljucajLiniju()"],
+.editor button[onclick="sacuvajIzmjenuLinije()"] {
+    text-transform: uppercase;
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.editor button[onclick="zakljucajLiniju()"]:hover,
+.editor button[onclick="sacuvajIzmjenuLinije()"]:hover {
+    background-color: #f0f0f0;
+}
+
+
+.editor > div:not(.papir):not(.nova-dugmad):not(#output) {
+    width: 85%;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.editor > div:nth-child(4),
+.editor > div:nth-child(5),
+.editor > div:nth-child(6),
+.editor > div:nth-child(7) {
+    background: white;
+    padding: 16px 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.editor > div:nth-child(4) {
+    border-radius: 8px 8px 0 0;
+}
+
+.editor > div:nth-child(7) {
+    border-radius: 0 0 8px 8px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+
+.editor input[type="number"] {
+    width: 100%;
+    max-width: 400px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+}
+
+
+.editor textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+    resize: vertical;
+}
+
+
+.editor button[onclick="zakljucajLiniju()"],
+.editor button[onclick="sacuvajIzmjenuLinije()"] {
+    text-transform: uppercase;
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.editor button:hover {
+    background-color: #f0f0f0;
+}
+/*noviteti*/
+
+.editor {
+    background-color: #f5f6fa;
+    padding: 40px 20px;
+}
+.papir {
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    border: 1px solid #e5e7eb;
+}
+.editor > div:nth-child(4),
+.editor > div:nth-child(5),
+.editor > div:nth-child(6),
+.editor > div:nth-child(7) {
+    background: white;
+    padding: 20px 24px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    border-left: 4px solid #5B3FFF;
+}
+.editor input,
+.editor textarea {
+    background-color: #f9fafb;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 10px 12px;
+    transition: all 0.2s ease;
+}
+
+.editor input:focus,
+.editor textarea:focus {
+    background-color: #fff;
+    border-color: #5B3FFF;
+    box-shadow: 0 0 0 2px rgba(91,63,255,0.15);
+}
+.editor button {
+    border-radius: 10px;
+    padding: 10px 16px;
+}
+
+
+.editor button[onclick="sacuvajIzmjenuLinije()"] {
+    background-color: #5B3FFF;
+    color: white;
+}
+
+.editor button[onclick="sacuvajIzmjenuLinije()"]:hover {
+    background-color: #4a32d4;
+}
+.editor > div {
+    margin-bottom: 20px;
+}
+.papir,
+.papir * {
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: pre-wrap;
+}
+button {
+    font-family: "Poppins", "Inter", sans-serif !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+}
+button {
+    min-height: 40px;
+    border-radius: 10px;
+}
+button:hover {
+    opacity: 0.95;
+}
+.editor {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.papir {
+    position: relative;
+    overflow: hidden;
+}
+
+.papir pre {
+    white-space: pre-wrap !important;
+    word-break: break-word;
+}
+
+.papir * {
+    max-width: 100%;
+    box-sizing: border-box;
+}
