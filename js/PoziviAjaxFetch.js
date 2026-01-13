@@ -1,6 +1,6 @@
-const PoziviAjax = (function () {
+const PoziviAjaxFetch = (function () {
   
-const BASE_URL = "http://localhost:8085/api";
+const BASE_URL = "http://localhost:3000/api";
 
   function handleResponse(response, callback) {
     response

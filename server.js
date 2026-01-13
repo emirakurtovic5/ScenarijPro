@@ -463,6 +463,6 @@ app.get('/api/scenarios/:scenarioId', function (req, res) {
   });
 });
 
-app.listen(8085, () => {
-    console.log("Server pokrenut na http://localhost:8085");
+app.listen(3000, () => {
+  console.log("Server pokrenut na http://localhost:3000");
 });

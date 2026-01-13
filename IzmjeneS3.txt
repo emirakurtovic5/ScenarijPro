@@ -1,0 +1,22 @@
+Promjene:
+
+U server.js:
+iz: app.listen(8085, () => {
+  console.log("Server pokrenut na http://localhost:8085");
+});
+
+u: app.listen(3000, () => {
+  console.log("Server pokrenut na http://localhost:3000");
+});
+
+U PoziviAjaxFetch:
+iz:
+  const BASE_URL = "http://localhost:8085/api";
+
+u: 
+ const BASE_URL = "http://localhost:3000/api";
+
+Za test tests3Fetch nisam nista mijenjala.
+
+Za test testS3 nisam nista mijenjala.
+

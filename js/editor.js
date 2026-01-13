@@ -51,7 +51,7 @@ function ucitajScenario() {
         return;
     }
 
-    PoziviAjax.getScenario(scenarioId, function (status, data) {
+    PoziviAjaxFetch.getScenario(scenarioId, function (status, data) {
         if (status === 200) {
             renderScenario(data.content);
             lastDeltaTime = Math.floor(Date.now() / 1000);
@@ -169,7 +169,7 @@ const zakljucajLiniju = () => {
         return;
     }
 
-    PoziviAjax.lockLine(
+    PoziviAjaxFetch.lockLine(
         scenarioId,
         lineId,
         userId,
@@ -211,7 +211,7 @@ const sacuvajIzmjenuLinije = () => {
 
     const newText = newTextRaw.split("\n");
 
-    PoziviAjax.updateLine(
+    PoziviAjaxFetch.updateLine(
         scenarioId,
         lineId,
         userId,
@@ -228,7 +228,7 @@ const sacuvajIzmjenuLinije = () => {
 };
 
 const dohvatiPromjene = () => {
-    PoziviAjax.getDeltas(scenarioId, lastDeltaTime, function (status, data) {
+    PoziviAjaxFetch.getDeltas(scenarioId, lastDeltaTime, function (status, data) {
         if (status === 200 && data && data.deltas && data.deltas.length > 0) {
             console.log("Nove promjene:", data.deltas);
             
@@ -244,7 +244,7 @@ const dohvatiPromjene = () => {
             });
             
             
-            PoziviAjax.getScenario(scenarioId, function(status, data) {
+            PoziviAjaxFetch.getScenario(scenarioId, function(status, data) {
                 if (status === 200) {
                     const tekst = data.content.map(line => line.text).join('\n');
                     //document.getElementById("editorContent").innerHTML = tekst;
@@ -270,7 +270,7 @@ const zakljucajLik = () => {
         return;
     }
 
-    PoziviAjax.lockCharacter(scenarioId, characterName, userId, function(status, data) {
+    PoziviAjaxFetch.lockCharacter(scenarioId, characterName, userId, function(status, data) {
         if (status === 200) {
             prikaziPoruku(`Lik "${characterName}" je zaključan`, "success");
         } else {
@@ -294,7 +294,7 @@ const promijeniImeLika = () => {
         return;
     }
 
-    PoziviAjax.updateCharacter(scenarioId, userId, oldName, newName, function(status, data) {
+    PoziviAjaxFetch.updateCharacter(scenarioId, userId, oldName, newName, function(status, data) {
         if (status === 200) {
             prikaziPoruku(`Ime lika "${oldName}" promijenjeno u "${newName}"`, "success");
             ucitajScenario(); 
