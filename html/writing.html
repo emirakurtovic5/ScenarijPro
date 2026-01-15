@@ -9,6 +9,101 @@
         <script src="../js/PoziviAjaxFetch.js"></script>
         <script src="../js/EditorTeksta.js"></script>
         <script src="../js/editor.js"></script>
+        
+        <style>
+            .section-divider {
+                border-top: 2px solid #4a90e2;
+                margin: 20px 0;
+                padding-top: 15px;
+            }
+            
+            .section-title {
+                font-weight: 600;
+                color: #2c3e50;
+                margin-bottom: 10px;
+                font-size: 16px;
+            }
+            
+            .input-group {
+                margin-bottom: 12px;
+            }
+            
+            .input-group label {
+                display: inline-block;
+                width: 150px;
+                font-weight: 500;
+            }
+            
+            .input-group input,
+            .input-group textarea {
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+            
+            .button-group {
+                margin-top: 15px;
+            }
+            
+            .button-group button {
+                margin-right: 8px;
+                margin-bottom: 8px;
+                padding: 10px 15px;
+                background: #4a90e2;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-weight: 500;
+            }
+            
+            .button-group button:hover {
+                background: #357abd;
+            }
+            
+            .button-group button.primary {
+                background: #27ae60;
+            }
+            
+            .button-group button.primary:hover {
+                background: #229954;
+            }
+            
+            .button-group button.secondary {
+                background: #e67e22;
+            }
+            
+            .button-group button.secondary:hover {
+                background: #d35400;
+            }
+            
+            #deltasDisplay {
+                margin-top: 20px;
+                padding: 15px;
+                background: #f8f9fa;
+                border-radius: 6px;
+            }
+            
+            #deltasDisplay h3 {
+                margin-top: 0;
+                color: #2c3e50;
+            }
+            
+            .success {
+                color: #27ae60;
+                font-weight: 500;
+            }
+            
+            .error {
+                color: #e74c3c;
+                font-weight: 500;
+            }
+            
+            .info {
+                color: #3498db;
+                font-weight: 500;
+            }
+        </style>
     </head>
 
     <body>
@@ -21,7 +116,7 @@
                             stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </button>
-                <h1 class="naslovZaglavlje">THE LAST STARSHIP (Draft 2)</h1>
+                <h1 class="naslovZaglavlje">LAST STARSHIP (Draft 2)</h1>
             </div>
 
             <div class="sredina">
@@ -92,45 +187,82 @@ EXT. ASTEROID FIELD - DAY
 
 The damaged starship drifts through rocks.
             </div>
-            <div>
-                <label for="scenarioIdInput">Scenario ID:</label>
-                <input type="number" id="scenarioIdInput" value="1" />
-    
-            </div>
-            <div>
-                 <label for="characterNameInput">Ime lika:</label>
-                <input type="text" id="characterNameInput" />
-
-                <label for="newCharacterNameInput">Novo ime:</label>
-                <input type="text" id="newCharacterNameInput" />
-            </div>
-
-            <div>
-                <label for="userIdInput">User ID:</label>
-                <input type="number" id="userIdInput" value="1" />
+            
+            
+            <div class="section-divider">
+                <div class="section-title">KREIRAJ NOVI SCENARIO</div>
+                <div class="input-group">
+                    <label for="newScenarioTitleInput">Naziv scenarija:</label>
+                    <input type="text" id="newScenarioTitleInput" placeholder="Unesite naziv (opcionalno)" style="width: 300px;" />
+                </div>
+                <div class="button-group">
+                    <button onclick="kreirajNoviScenario()" class="primary">Kreiraj novi scenario</button>
+                </div>
             </div>
 
-            <div>
-                <label for="lineIdInput">Line ID:</label>
-                <input type="number" id="lineIdInput" />
+            
+            <div class="section-divider">
+                <div class="section-title">UČITAJ POSTOJEĆI SCENARIO</div>
+                <div class="input-group">
+                    <label for="scenarioIdInput">Scenario ID:</label>
+                    <input type="number" id="scenarioIdInput" value="1" />
+                </div>
+                <div class="button-group">
+                    <button onclick="ucitajScenario()">Učitaj scenario</button>
+                    <button onclick="prikaziDeltas()" class="secondary">Prikaži Deltas</button>
+                </div>
             </div>
 
-            <div>
-                <label for="newTextInput">Novi tekst (jedna linija po retku):</label><br/>
-                <textarea id="newTextInput" rows="4" cols="50"></textarea>
+            
+            <div class="section-divider">
+                <div class="section-title">KORISNIČKI PODACI</div>
+                <div class="input-group">
+                    <label for="userIdInput">User ID:</label>
+                    <input type="number" id="userIdInput" value="1" />
+                </div>
             </div>
 
-            <div>
-                <button onclick="zakljucajLiniju()">Zaključaj liniju</button>
-                <button onclick="sacuvajIzmjenuLinije()">Sačuvaj izmjenu</button>
-                <button onclick="ucitajScenario()">Učitaj scenario</button>
-                <button onclick="zakljucajLik()">Zaključaj lika</button>
-                <button onclick="promijeniImeLika()">Promijeni ime lika</button>
+            
+            <div class="section-divider">
+                <div class="section-title">UPRAVLJANJE LIKOVIMA</div>
+                <div class="input-group">
+                    <label for="characterNameInput">Ime lika:</label>
+                    <input type="text" id="characterNameInput" />
+                </div>
+                <div class="input-group">
+                    <label for="newCharacterNameInput">Novo ime:</label>
+                    <input type="text" id="newCharacterNameInput" />
+                </div>
+                <div class="button-group">
+                    <button onclick="zakljucajLik()">Zaključaj lika</button>
+                    <button onclick="promijeniImeLika()">Promijeni ime lika</button>
+                </div>
             </div>
 
-            <div id="output"></div>
+            
+            <div class="section-divider">
+                <div class="section-title">UREĐIVANJE LINIJA</div>
+                <div class="input-group">
+                    <label for="lineIdInput">Line ID:</label>
+                    <input type="number" id="lineIdInput" />
+                    <small style="margin-left: 155px; color: #7f8c8d;">Kliknite na liniju u editoru da odaberete</small>
+                </div>
+                <div class="input-group">
+                    <label for="newTextInput" style="vertical-align: top;">Novi tekst:</label>
+                    <textarea id="newTextInput" rows="4" cols="50" placeholder="Jedna linija po retku"></textarea>
+                </div>
+                <div class="button-group">
+                    <button onclick="zakljucajLiniju()">Zaključaj liniju</button>
+                    <button onclick="sacuvajIzmjenuLinije()" class="primary">Sačuvaj izmjenu</button>
+                </div>
+            </div>
+
+            
+            <div id="output" style="margin-top: 20px; padding: 15px; background: #ecf0f1; border-radius: 6px; min-height: 40px;"></div>
+            
+            
+            <div id="deltasDisplay"></div>
         </main>
     </body>
 </html>
-
 

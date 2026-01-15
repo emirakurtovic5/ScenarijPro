@@ -5,17 +5,17 @@
     {
       "lineId": 1,
       "nextLineId": 2,
-      "text": "NARATOR: Sunce je polako zalazilo nad starim gradom."
+      "text": "Novi tekst"
     },
     {
       "lineId": 2,
       "nextLineId": 3,
-      "text": "ALICIA: Jesi li siguran da je ključ ostao u biblioteci?"
+      "text": "Nova linijja part 2"
     },
     {
       "lineId": 3,
       "nextLineId": 7,
-      "text": "riječ riječ riječ riječ riječ riječ riječ riječ riječ riječ riječ riječ riječ riječ riječ riječ riječ riječ riječ riječ"
+      "text": "nova linija part 3"
     },
     {
       "lineId": 7,

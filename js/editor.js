@@ -8,9 +8,6 @@ window.onload = () => {
     editor = EditorTeksta(div);
 
     
-    ucitajScenario();
-
-    
     document.getElementById("editorContent").addEventListener("click", e => {
         const line = e.target.closest(".editor-line");
         if (!line) return;
@@ -42,6 +39,7 @@ function renderScenario(content) {
         editorDiv.appendChild(div);
     });
 }
+
 function ucitajScenario() {
     const input = document.getElementById("scenarioIdInput");
     scenarioId = parseInt(input.value);
@@ -228,34 +226,30 @@ const sacuvajIzmjenuLinije = () => {
 };
 
 const dohvatiPromjene = () => {
+    if (!scenarioId) return;
+    
     PoziviAjaxFetch.getDeltas(scenarioId, lastDeltaTime, function (status, data) {
         if (status === 200 && data && data.deltas && data.deltas.length > 0) {
             console.log("Nove promjene:", data.deltas);
             
-            
             data.deltas.forEach(delta => {
                 if (delta.type === "line_update") {
-                    
                     prikaziPoruku(`Linija ${delta.lineId} ažurirana: ${delta.content}`, "info");
                 } else if (delta.type === "char_rename") {
-                    
                     prikaziPoruku(`Lik promijenjen: ${delta.oldName} → ${delta.newName}`, "info");
                 }
             });
             
-            
             PoziviAjaxFetch.getScenario(scenarioId, function(status, data) {
                 if (status === 200) {
-                    const tekst = data.content.map(line => line.text).join('\n');
-                    //document.getElementById("editorContent").innerHTML = tekst;
                     renderScenario(data.content);
-
                 }
             });
         }
         lastDeltaTime = Math.floor(Date.now() / 1000);
     });
 };
+
 const zakljucajLik = () => {
     const characterName = document.getElementById("characterNameInput").value.trim();
     const userId = parseInt(document.getElementById("userIdInput").value);
@@ -300,6 +294,83 @@ const promijeniImeLika = () => {
             ucitajScenario(); 
         } else {
             prikaziPoruku(data?.message || "Greška pri promjeni imena lika", "error");
+        }
+    });
+};
+
+
+
+const kreirajNoviScenario = () => {
+    const title = document.getElementById("newScenarioTitleInput").value.trim();
+    
+    PoziviAjaxFetch.postScenario(title, function(status, data) {
+        if (status === 200) {
+            prikaziPoruku(`Novi scenario kreiran! ID: ${data.id}, Naziv: ${data.title}`, "success");
+            document.getElementById("scenarioIdInput").value = data.id;
+            scenarioId = data.id;
+            renderScenario(data.content);
+            lastDeltaTime = Math.floor(Date.now() / 1000);
+        } else {
+            prikaziPoruku(data?.message || "Greška pri kreiranju scenarija", "error");
+        }
+    });
+};
+
+const prikaziDeltas = () => {
+    if (!scenarioId) {
+        prikaziPoruku("Prvo učitaj scenario!", "error");
+        return;
+    }
+    
+    PoziviAjaxFetch.getDeltas(scenarioId, 0, function(status, data) {
+        if (status === 200) {
+            if (!data.deltas || data.deltas.length === 0) {
+                prikaziPoruku("Nema delta promjena za ovaj scenario", "info");
+                return;
+            }
+            
+            const deltasDiv = document.getElementById("deltasDisplay");
+            deltasDiv.innerHTML = "<h3>Delta promjene:</h3>";
+            
+            const list = document.createElement("div");
+            list.style.maxHeight = "400px";
+            list.style.overflowY = "auto";
+            list.style.border = "1px solid #ccc";
+            list.style.padding = "10px";
+            list.style.marginTop = "10px";
+            
+            data.deltas.forEach((delta, index) => {
+                const item = document.createElement("div");
+                item.style.marginBottom = "15px";
+                item.style.paddingBottom = "10px";
+                item.style.borderBottom = "1px solid #eee";
+                
+                const date = new Date(delta.timestamp * 1000).toLocaleString('bs-BA');
+                
+                if (delta.type === "line_update") {
+                    item.innerHTML = `
+                        <strong>#${index + 1} - Line Update</strong><br/>
+                        Line ID: ${delta.lineId}<br/>
+                        Next Line: ${delta.nextLineId || 'null'}<br/>
+                        Content: <em>${delta.content}</em><br/>
+                        <small>Timestamp: ${date}</small>
+                    `;
+                } else if (delta.type === "char_rename") {
+                    item.innerHTML = `
+                        <strong>#${index + 1} - Character Rename</strong><br/>
+                        Old Name: ${delta.oldName}<br/>
+                        New Name: ${delta.newName}<br/>
+                        <small>Timestamp: ${date}</small>
+                    `;
+                }
+                
+                list.appendChild(item);
+            });
+            
+            deltasDiv.appendChild(list);
+            prikaziPoruku(`Prikazano ${data.deltas.length} delta promjena`, "success");
+        } else {
+            prikaziPoruku(data?.message || "Greška pri dohvaćanju deltas", "error");
         }
     });
 };
