@@ -5,32 +5,22 @@
     {
       "lineId": 1,
       "nextLineId": 2,
-      "text": "Novi tekst"
+      "text": "NARATOR: Sunce je polako zalazilo nad starim gradom."
     },
     {
       "lineId": 2,
       "nextLineId": 3,
-      "text": "Nova linijja part 2"
+      "text": "ALICE: Jesi li siguran da je ključ ostao u biblioteci?"
     },
     {
       "lineId": 3,
-      "nextLineId": 7,
-      "text": "nova linija part 3"
-    },
-    {
-      "lineId": 7,
-      "nextLineId": 8,
-      "text": "riječ riječ riječ riječ riječ riječ riječ riječ riječ riječ riječ riječ riječ riječ riječ riječ riječ riječ riječ riječ"
-    },
-    {
-      "lineId": 8,
       "nextLineId": 4,
-      "text": "riječ riječ riječ riječ riječ"
+      "text": "BOB: To je posljednje mjesto gdje sam ga vidio prije nego što je pala noć."
     },
     {
       "lineId": 4,
       "nextLineId": 5,
-      "text": "ALICIA: Moramo požuriti prije nego što čuvar zaključa glavna vrata."
+      "text": "ALICE: Moramo požuriti prije nego što čuvar zaključa glavna vrata."
     },
     {
       "lineId": 5,
