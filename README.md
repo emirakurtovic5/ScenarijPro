@@ -1,4 +1,4 @@
-# 🎬 ScenarijPro
+# ScenarijPro
 
 ScenarijPro je web aplikacija za kreiranje i uređivanje scenarija.  
 Omogućava korisnicima pregled projekata, pisanje scenarija sa jasno strukturiranim scenama i dijalozima, te uređivanje korisničkog profila.
@@ -7,45 +7,45 @@ Aplikacija podržava kolaborativni rad više korisnika, koristeći sistem zaklju
 
 ---
 
-## 🛠 Tehnologije korištene
+## Tehnologije korištene
 
-### 🎨 Frontend
+### Frontend
 - HTML5
 - CSS3
 - Responzivni dizajn
 
-### 📜 JavaScript moduli
+### JavaScript moduli
 - **EditorTeksta.js** – rad sa scenarijem u editoru
   - brojanje riječi
   - detekcija uloga
   - formatiranje teksta
 - **PoziviAjax.js** – komunikacija sa backend-om putem AJAX zahtjeva
 
-### ⚙ Backend
+### Backend
 - Node.js
 - Express
 
-### 🗄 Baza podataka
+### Baza podataka
 Trajno pohranjivanje podataka o:
 - scenarijima
 - linijama teksta
 - korisnicima
 
-### 🔤 Fontovi
+### Fontovi
 - Poppins
 - Inter
 - Courier Prime
 
 ---
 
-## ✨ Funkcionalnosti
+## Funkcionalnosti
 
-### 📂 Pregled projekata
+### Pregled projekata
 - Mreža kartica sa svim scenarijima
 - Opcija kreiranja novog scenarija
 - Sidebar sa navigacijom i profilom korisnika
 
-### ✍ Pisanje scenarija
+### Pisanje scenarija
 - Sticky zaglavlje sa alatima:
   - Scena
   - Akcija
@@ -54,14 +54,14 @@ Trajno pohranjivanje podataka o:
 - Sidebar sa listom scena
 - Centralni editor za pisanje scenarija
 
-### 👤 Uređivanje korisničkog profila
+### Uređivanje korisničkog profila
 - Forma za pregled i izmjenu korisničkih podataka
 - Sigurnosne postavke
 - Notifikacije
 
 ---
 
-## 🔌 Backend API
+## Backend API
 - Kreiranje scenarija
 - Zaključavanje i ažuriranje linija teksta
 - Zaključavanje i promjena imena likova
